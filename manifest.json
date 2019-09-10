@@ -1,6 +1,6 @@
 {
-  "name": "WTF: PWA",
-  "short_name": "WTF: PWA",
+  "name": "HydroApp: PWA",
+  "short_name": "HydroApp: PWA",
   "theme_color": "#000000",
   "background_color": "#000000",
   "display": "standalone",
