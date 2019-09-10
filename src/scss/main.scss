@@ -1,0 +1,72 @@
+@import "_normalize";
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap&subset=latin-ext");
+$background: #3767AD; 
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  color: #ffffff;
+  background: $background;
+  font-family: Roboto;
+  font-weight: 500;
+  min-height:  100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.button-add {
+  width: 216px;
+  height: 47px;
+  font-size: 18px;
+  border: none;
+  background: #FFFFFF;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 48px 0 26px;
+}
+
+.button-remove{
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  width: 216px;
+  height: 47px;
+  font-size: 14px;
+}
+
+.counter {
+  background: url(../assets/img/svg/water-glass.svg) center center;
+  width: 280px;
+  height: 280px;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-size: 112px;
+
+  &__value {
+    display: block;
+      padding-top: 64px;
+    }
+}
+.heading {
+  font-size: 55px;
+  margin: 0 0 64px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
