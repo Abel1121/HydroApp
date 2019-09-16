@@ -22,7 +22,7 @@ body {
   padding: 16px;
 }
 
-.button-add {
+.button-add,{
   width: 216px;
   height: 47px;
   font-size: 18px;
@@ -41,8 +41,19 @@ body {
   height: 47px;
   font-size: 14px;
 }
+.history-button {
+  width: 216px;
+  height: 47px;
+  font-size: 18px;
+  border: #FFFFFF;
+  border-style: solid;
+  border-width: 3px;
+  color: #FFFFFF;
+  border-radius: 4px;
+  background: none;
+}
 
-.counter {
+.counter-water {
   background: url(../assets/img/svg/water-glass.svg) center center;
   width: 280px;
   height: 280px;
@@ -58,6 +69,23 @@ body {
       padding-top: 64px;
     }
 }
+
+.counter-cola{
+  background: url(../assets/img/svg/cola-glass.svg) center center;
+  width: 280px;
+  height: 280px;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 112px;
+
+  &__value {
+    display: block;
+      padding-top: 64px;
+    }
+}
 .heading {
   font-size: 55px;
   margin: 0 0 64px;
@@ -65,8 +93,80 @@ body {
   display: flex;
   justify-content: center;
 }
+.history {
+  background: #FFFFFF;
+  font-size: 16px;
+  width: 100vw;
+  height: 30vh;
+  position: fixed;
+  bottom: -30vh;
+  transition: bottom 2s ease-in-out;
+  &__visible {
+    bottom: 0vh;
+  }
+  
+  &__button-close{ 
+    background: url(../assets/img/svg/close-cross.svg) center center;
+    background-repeat: no-repeat;
+    width: 45px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+  }
+
+    &__table{
+      color: black;
+      table-layout: fixed;
+      border-collapse: collapse;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    &__table tbody {
+      display: block;
+      width: 50%;
+      overflow: auto;
+    }
+
+    &__table thead tr {
+      display: block;
+    }
+
+    &__table thead {
+      width: 50%;
+      background: #fff;
+      color: black;
+    }
+    &__table th,
+    &__table td {
+      text-align: left;
+      padding: 12px;
+      width: 100%;
+  }
+}
+.close {
+  display: flex;
+  justify-content: flex-end;
+}
 .main{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+}
+.glasses {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 8rem;
+  
+  &__water, &__cola {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__water {
+    margin-right: 8rem;
+  }
 }
