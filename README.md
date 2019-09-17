@@ -5,6 +5,7 @@ Its my first website with Progressic Website Applicaction for counting glasses o
 
 ## Tools & Technologies I've used
 * VSC
+* Figma
 * CSS Flexbox
 * Sass
 * Javascript
