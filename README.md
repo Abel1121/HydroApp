@@ -8,8 +8,7 @@ Its my first website with Progressic Website Applicaction for counting glasses o
 * Figma
 * CSS Flexbox
 * Sass
-* Javascript
-* local.storage
+* Javascript - local.storage
 * npm
 * gulp
 * node.js
