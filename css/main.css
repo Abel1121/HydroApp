@@ -460,11 +460,15 @@ body {
     width: 50%;
     background: #fff;
     color: black; }
-  .history__table th,
-  .history__table td {
+  .history__table th:first-child,
+  .history__table td:first-child {
+    width: 70%;
     text-align: left;
-    padding: 12px;
-    width: 100%; }
+    padding: 12px; }
+  .history__table td:not(:first-child),
+  .history__table th:not(:first-child) {
+    width: 200px;
+    text-align: center; }
 
 .close {
   display: -webkit-box;
@@ -501,6 +505,12 @@ body {
       -ms-flex-direction: row;
           flex-direction: row;
   padding: 8rem; }
+  @media (max-width: 768px) {
+    .glasses {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column; } }
   .glasses__water, .glasses__cola {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -514,5 +524,9 @@ body {
             flex-direction: column; }
   .glasses__water {
     margin-right: 8rem; }
+    @media (max-width: 768px) {
+      .glasses__water {
+        margin: 0;
+        padding-bottom: 5rem; } }
 
 /*# sourceMappingURL=main.css.map */
