@@ -1,5 +1,7 @@
 "use strict";
 
+import { get } from "https";
+
 // service worker registration - remove if you're not going to use it
 
 if ('serviceWorker' in navigator) {
@@ -26,68 +28,86 @@ const buttonHistoryAdd = document.querySelector('.history__button_open-js');
 const buttonHistoryRemove = document.querySelector('.history__button__close-js');
 const tableBody = document.querySelector('.table__body--js');
 const historyTable = document.querySelector('.history');
-const key = new Date().toISOString().slice(0, 10) + " water";
-const key2 = new Date().toISOString().slice(0, 10) + " cola";
+const key = new Date().toISOString().slice(0, 10);
+
+let glasses = {
+  water: 0,
+  cola: 0
+  }
+
 
 //water
-if (!localStorage.getItem(key)) {
-  localStorage.setItem(key, 0)
-  value_water.innerHTML = '0'
+if (!localStorage.getItem(key, JSON.stringify(glasses))) {
+  localStorage.setItem(key, JSON.stringify(glasses))
+  value_water.innerHTML = '0';
 } else {
-  value_water.innerHTML = localStorage.getItem(key);
+  value_water.innerHTML = JSON.parse(localStorage[key]).water;
 }
 
 buttonAdd.addEventListener('click', (e) => {
-  localStorage.setItem(key, parseInt(localStorage.getItem(key)) + 1);
-  value_water.innerHTML = localStorage.getItem(key);
-})
+  glasses.water = JSON.parse(localStorage[key]).water + 1
+  glasses.cola = JSON.parse(localStorage[key]).cola
+localStorage.setItem(key, JSON.stringify(glasses))
+console.log(glasses)
+value_water.innerHTML = JSON.parse(localStorage[key]).water
+});
 
 buttonRemove.addEventListener('click', (e) => {
-  const currentValue = parseInt(localStorage.getItem(key));
+  const currentValue = JSON.parse(localStorage[key]).water;
   if (currentValue > 0) {
-    localStorage.setItem(key, parseInt(localStorage.getItem(key)) -1);
-    value_water.innerHTML = localStorage.getItem(key);
+    glasses.water = JSON.parse(localStorage[key]).water - 1
+    glasses.cola = JSON.parse(localStorage[key]).cola
+    console.log(glasses)
+    localStorage.setItem(key, JSON.stringify(glasses))
+    value_water.innerHTML = JSON.parse(localStorage[key]).water
   };
 })
-// cola
+// // cola
 
-if (!localStorage.getItem(key2)) {
-  localStorage.setItem(key2, 0)
+if (!localStorage.getItem(key, JSON.stringify(glasses))) {
+  localStorage.setItem(key, JSON.stringify(glasses))
   value_cola.innerHTML = '0';
 } else {
-  value_cola.innerHTML = localStorage.getItem(key2);
+  value_cola.innerHTML = JSON.parse(localStorage[key]).cola;
 }
 
 buttonAddCola.addEventListener('click', (e) => {
-  localStorage.setItem(key2, parseInt(localStorage.getItem(key2)) + 1)
-  value_cola.innerHTML = localStorage.getItem(key2);
+  glasses.cola = JSON.parse(localStorage[key]).cola + 1
+  glasses.water = JSON.parse(localStorage[key]).water
+localStorage.setItem(key, JSON.stringify(glasses))
+console.log(glasses)
+value_cola.innerHTML = JSON.parse(localStorage[key]).cola
 })
 
 buttonRemoveCola.addEventListener('click', (e) => {
-  const currentValue = parseInt(localStorage.getItem(key2));
+  const currentValue = JSON.parse(localStorage[key]).cola;
   if (currentValue > 0) {
-    localStorage.setItem(key2, parseInt(localStorage.getItem(key2)) -1)
-    value_cola.innerHTML = localStorage.getItem(key2);
-  }
-})
+    glasses.cola = JSON.parse(localStorage[key]).cola - 1
+    glasses.water = JSON.parse(localStorage[key]).water
+    console.log(glasses)
+    localStorage.setItem(key, JSON.stringify(glasses))
+    value_cola.innerHTML = JSON.parse(localStorage[key]).cola
+  };
+});
 
 //hisotry
 buttonHistoryAdd.addEventListener('click', (e) => {
   historyTable.classList.add('history__visible');
+});
 
   tableBody.innerHTML = "";
 for( let i = 0 ; i < localStorage.length ; i++) {
-  const localStorageValue = localStorage.getItem(localStorage.key(i))
+  const localStorageValue = localStorage.getItem(localStorage.key(i));
   const localStoragedate = localStorage.key(i);
   tableBody.innerHTML += `
     <tr>
       <td>${localStoragedate}</td>
-      <td>${localStorageValue}</td>
+      <td>${JSON.parse(localStorage[key]).cola}</td>
+      <td>${JSON.parse(localStorage[key]).water}</td>
     </tr>
   `
 }
-})
 
-buttonHistoryRemove.addEventListener('click', (e) => {
+buttonHistoryRemove.addEventListener('click', e => {
   historyTable.classList.remove('history__visible');
 })

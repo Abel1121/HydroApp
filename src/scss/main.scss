@@ -138,11 +138,16 @@ body {
       background: #fff;
       color: black;
     }
-    &__table th,
-    &__table td {
+    &__table th:first-child,
+    &__table td:first-child {
+      width: 70%;
       text-align: left;
       padding: 12px;
-      width: 100%;
+  }
+  &__table td:not(:first-child),
+  &__table th:not(:first-child) {
+    width: 200px;
+    text-align: center;
   }
 }
 .close {
@@ -160,6 +165,9 @@ body {
   align-items: center;
   flex-direction: row;
   padding: 8rem;
+   @media (max-width:768px) {
+    flex-direction: column;
+  }
   
   &__water, &__cola {
     display: flex;
@@ -168,5 +176,9 @@ body {
   }
   &__water {
     margin-right: 8rem;
+    @media (max-width:768px) {
+      margin: 0;
+      padding-bottom: 5rem;
+    }
   }
 }
