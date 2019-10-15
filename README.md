@@ -1,9 +1,15 @@
-# wtf-gulp-starter
+![Screenshots](src/assets/img/cover.png)
+# HydroAPP
 
-`npm install -g gulp-cli`
+Its my first website with Progressic Website Applicaction for counting glasses of water and cola 🔥
 
-`npm install`
-
-`gulp`
-
-To publish your page using github pages use `npm run deploy`
+## Tools & Technologies I've used
+* VSC
+* Figma
+* CSS Flexbox
+* Sass
+* Javascript - local.storage
+* npm
+* gulp
+* node.js
+* PWA
