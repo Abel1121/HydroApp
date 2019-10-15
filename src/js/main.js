@@ -93,8 +93,7 @@ buttonRemoveCola.addEventListener('click', (e) => {
 //hisotry
 buttonHistoryAdd.addEventListener('click', (e) => {
   historyTable.classList.add('history__visible');
-});
-
+  
   tableBody.innerHTML = "";
 for( let i = 0 ; i < localStorage.length ; i++) {
   const localStorageValue = localStorage.getItem(localStorage.key(i));
@@ -107,7 +106,7 @@ for( let i = 0 ; i < localStorage.length ; i++) {
     </tr>
   `
 }
-
+});
 buttonHistoryRemove.addEventListener('click', e => {
   historyTable.classList.remove('history__visible');
 })
