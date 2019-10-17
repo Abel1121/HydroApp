@@ -96,13 +96,14 @@ buttonHistoryAdd.addEventListener('click', (e) => {
   
   tableBody.innerHTML = "";
 for( let i = 0 ; i < localStorage.length ; i++) {
-  const localStorageValue = localStorage.getItem(localStorage.key(i));
+  const keys = localStorage.key(i);
+  const localStorageValue = JSON.parse(localStorage[keys]);
   const localStoragedate = localStorage.key(i);
   tableBody.innerHTML += `
     <tr>
       <td>${localStoragedate}</td>
-      <td>${JSON.parse(localStorage[key]).cola}</td>
-      <td>${JSON.parse(localStorage[key]).water}</td>
+      <td>${localStorageValue.cola}</td>
+      <td>${localStorageValue.water}</td>
     </tr>
   `
 }

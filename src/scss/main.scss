@@ -160,6 +160,9 @@ body {
   &__table th:not(:first-child) {
     min-width: 125px;
     text-align: center;
+    @media (max-width:768px) {
+      min-width: 110px
+    }
   }
 }
 .close {
